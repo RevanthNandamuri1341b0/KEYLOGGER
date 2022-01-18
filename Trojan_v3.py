@@ -99,9 +99,7 @@ def error(update, context):
 
 
 def tele_bot():
-    updater = Updater(
-        "5027710057:AAGBz3kPPzovjenBTiB2_-shOutLMg0NBmI", use_context=True
-    )
+    updater = Updater("#token", use_context=True)
 
     dp = updater.dispatcher
 
