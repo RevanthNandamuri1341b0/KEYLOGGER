@@ -1,6 +1,0 @@
-{
-    "cSpell.enableFiletypes": [
-        "!python"
-    ],
-    "python.formatting.provider": "autopep8"
-}

